@@ -30,6 +30,8 @@ def toNames(notes):
     return [Names(x).name for x in notes]
 
 def findChords(notes: Set[int]):
+    if not isinstance(notes, set):
+        raise TypeError("expected notes to be a set")
     major = []
     minor = []
     for root in notes:
@@ -47,7 +49,7 @@ def solve(tuning: List[int], changes: List[List[int]], numbers:bool):
         strings = apply(strings, change)
 
 
-    notes = sorted(set(strings))
+    notes = set(strings)
     chords = findChords(notes)
 
     space = 20
@@ -80,4 +82,4 @@ b =      [0, 0, 0, 0, 1, 0, 0, 1, 0, 0]
 c =      [0, 0, 0, 0, 0, 2, 2, 0, 0, 0]
 etuning = (transpose(tuning, 4))
 
-solve(tuning, [c,b], False)
+solve(etuning, [], False)
