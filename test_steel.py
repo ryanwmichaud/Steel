@@ -1,5 +1,5 @@
 import unittest
-from steel import apply, transpose, toNames, findChords
+from steelV2 import apply, transpose, toNames, findChords
 
 class TestApply(unittest.TestCase):
     def test_apply(self):
